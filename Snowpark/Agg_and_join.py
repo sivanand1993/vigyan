@@ -110,3 +110,4 @@ supplier = session.table("SNOWFLAKE_SAMPLE_DATA.TPCH_SF1.SUPPLIER")
 
 supplier_filter = supplier.select("s_suppkey","s_nationkey").filter(col("s_nationkey")==1)
 supplier.filter(supplier["s_suppkey"].in_(supplier_filter.select("s_suppkey"))).show()
+#new line
