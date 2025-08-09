@@ -1,0 +1,16 @@
+Acme Coffee Maker User Guide (Excerpt)
+
+Setup Instructions:
+1. Place the coffee maker on a flat, stable surface.
+2. Fill the water reservoir with fresh water.
+3. Insert a paper filter into the filter basket.
+4. Add ground coffee (1 tablespoon per cup) into the filter.
+
+Brewing:
+Press the 'Brew' button to start brewing. The coffee maker will automatically stop once brewing is complete.
+If you wish to pause brewing, press the 'Pause' button. Press 'Brew' again to resume.
+
+Cleaning:
+After use, discard the paper filter and coffee grounds.
+Wash the carafe and filter basket with warm, soapy water.
+Do not immerse the coffee maker's main body in water.
