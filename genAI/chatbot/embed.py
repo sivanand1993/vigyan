@@ -6,6 +6,8 @@ import tiktoken
 import numpy as np
 from openai import OpenAI
 
+
+
 # --- File Loaders ---
 def load_txt(path: str) -> str:
     with open(path, "r", encoding="utf-8", errors="ignore") as f:
@@ -42,7 +44,7 @@ def chunk_text(text: str, chunk_tokens: int = 400, overlap: int = 60, model: str
 
 # --- Embedding ---
 def embed_texts(texts: List[str], model: str = "text-embedding-3-small") -> np.ndarray:
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
     resp = client.embeddings.create(model=model, input=texts)
     vecs = [d.embedding for d in resp.data]
     X = np.array(vecs, dtype="float32")

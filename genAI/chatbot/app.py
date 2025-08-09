@@ -49,7 +49,7 @@ def answer_with_citations(question: str, top_k: int = 5):
     context = "\n\n---\n\n".join([f"[Source: {h['source']} | chunk {h['chunk_id']}]\n{h['text']}" for h in hits])
     sys = "You are a helpful assistant that answers based on the provided context only, with citations."
     user = f"Question: {question}\n\nContext:\n{context}"
-    client = OpenAI(api_key="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")
+    client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
     resp = client.chat.completions.create(model="gpt-4o-mini", messages=[{"role": "system", "content": sys}, {"role": "user", "content": user}], temperature=0.2)
     return resp.choices[0].message.content, hits
 
