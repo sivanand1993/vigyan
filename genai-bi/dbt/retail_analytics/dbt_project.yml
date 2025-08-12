@@ -1,0 +1,6 @@
+name: "retail_analytics"
+version: "1.0.0"
+profile: "retail_analytics"
+model-paths: ["models"]
+models:
+  +materialized: view

@@ -1,0 +1,80 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: analytics
+    ports: ["5432:5432"]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${PGUSER}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./postgres/init:/docker-entrypoint-initdb.d
+
+  lightdash:
+    image: lightdash/lightdash:latest
+    container_name: lightdash
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      LIGHTDASH_SECRET: ${LIGHTDASH_SECRET}
+      PGHOST: postgres
+      PGPORT: 5432
+      PGUSER: ${PGUSER}
+      PGPASSWORD: ${PGPASSWORD}
+      PGDATABASE: lightdash
+    ports: ["8080:8080"]
+    volumes:
+      - ./dbt/retail_analytics:/usr/app/dbt
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: unless-stopped
+    ports: ["11434:11434"]
+    volumes:
+      - ollama:/root/.ollama
+
+  nl2sql:
+    build: ./nl2sql
+    container_name: nl2sql
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ollama:
+        condition: service_started
+    environment:
+      OAI_BASE: http://ollama:11434/v1
+      OAI_KEY: ollama
+      # Use a small, CPU-friendly SQL model. Adjust if you have more RAM:
+      MODEL: mannix/defog-llama3-sqlcoder-8b:q5_k_s
+      DB_DSN: postgresql://nl2sql:${NL2SQL_PASSWORD}@postgres:5432/analytics
+    ports: ["9000:9000"]
+
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-postgres:latest
+    container_name: dbt
+    depends_on:
+      postgres:
+        condition: service_healthy
+    working_dir: /usr/app
+    environment:
+      DBT_PROFILES_DIR: /root/.dbt
+    volumes:
+      - ./dbt/retail_analytics:/usr/app
+      - ./dbt/profiles.yml:/root/.dbt/profiles.yml
+
+volumes:
+  pgdata:
+  ollama:

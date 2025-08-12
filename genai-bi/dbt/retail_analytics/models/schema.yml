@@ -1,0 +1,12 @@
+version: 2
+models:
+  - name: fct_orders
+    description: "Orders fact"
+    tags: ["exposed_to_ai"]
+    columns:
+      - name: order_date
+        description: "Date of order"
+      - name: account_id
+        description: "Customer account id"
+      - name: total_amount
+        description: "Order total (USD)"
