@@ -31,7 +31,7 @@ services:
       PGUSER: ${PGUSER}
       PGPASSWORD: ${PGPASSWORD}
       PGDATABASE: lightdash
-    ports: ["8080:8080"]
+    ports: ["8081:8080"]
     volumes:
       - ./dbt/retail_analytics:/usr/app/dbt
 
