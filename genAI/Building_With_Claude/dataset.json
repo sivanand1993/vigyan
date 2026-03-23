@@ -1,0 +1,11 @@
+[
+  {
+    "task": "Write a regex pattern to validate an AWS IAM role ARN format (arn:aws:iam::123456789012:role/RoleName)"
+  },
+  {
+    "task": "Write a Python function that extracts the AWS region from an S3 bucket URL like 's3.us-west-2.amazonaws.com'"
+  },
+  {
+    "task": "Write a JSON object that represents an AWS Lambda function configuration with environment variables for API_KEY and LOG_LEVEL"
+  }
+]
