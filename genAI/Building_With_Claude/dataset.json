@@ -1,11 +1,18 @@
 [
   {
-    "task": "Write a regex pattern to validate an AWS IAM role ARN format (arn:aws:iam::123456789012:role/RoleName)"
-  },
-  {
-    "task": "Write a Python function that extracts the AWS region from an S3 bucket URL like 's3.us-west-2.amazonaws.com'"
-  },
-  {
-    "task": "Write a JSON object that represents an AWS Lambda function configuration with environment variables for API_KEY and LOG_LEVEL"
+    "prompt_inputs": {
+      "height": "178 cm",
+      "weight": "72 kg",
+      "goal": "Marathon training with carbohydrate-loading for race day; achieve 4500+ calories with optimal macronutrient timing around 2-hour morning run and afternoon strength session",
+      "restrictions": "Vegetarian, no nuts"
+    },
+    "solution_criteria": [
+      "Meal plan totals 4500+ calories with carbohydrate-loading emphasis (55-65% of calories)",
+      "Includes pre-run, during-run, and post-run nutrition timing around the 2-hour morning session and afternoon strength work",
+      "All meals and snacks are vegetarian and nut-free",
+      "Plan is compact and fits within 1 day with 4-5 eating occasions"
+    ],
+    "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+    "scenario": "Testing with a high-endurance athlete (marathon runner) requiring carbohydrate-loading and specific caloric intake targets (4500+ calories) with timing constraints around training sessions"
   }
 ]

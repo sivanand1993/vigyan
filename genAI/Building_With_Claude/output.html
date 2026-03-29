@@ -1,0 +1,198 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">1</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">7.0 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a high-endurance athlete (marathon runner) requiring carbohydrate-loading and specific caloric intake targets (4500+ calories) with timing constraints around training sessions</td>
+                <td class="prompt-inputs"><strong>height:</strong> 178 cm<br><strong>weight:</strong> 72 kg<br><strong>goal:</strong> Marathon training with carbohydrate-loading for race day; achieve 4500+ calories with optimal macronutrient timing around 2-hour morning run and afternoon strength session<br><strong>restrictions:</strong> Vegetarian, no nuts</td>
+                <td class="criteria">• Meal plan totals 4500+ calories with carbohydrate-loading emphasis (55-65% of calories)<br>• Includes pre-run, during-run, and post-run nutrition timing around the 2-hour morning session and afternoon strength work<br>• All meals and snacks are vegetarian and nut-free<br>• Plan is compact and fits within 1 day with 4-5 eating occasions</td>
+                <td class="output"><pre># One-Day Meal Plan for Marathon Training Athlete
+
+Here is a one-day meal plan for an athlete training for a marathon with carbohydrate-loading for race day:
+
+* **Calorie Target:** Approximately 4500 calories
+* **Macronutrient Breakdown:** Protein (135g), Fat (120g), Carbs (630g)
+
+## Meal Plan:
+
+* **Pre-Run Breakfast (6:00 AM):** Bagel (85g) with jam (30g) and banana (150g). Orange juice (250ml).
+    * Protein: 10g, Fat: 2g, Carbs: 105g
+    * *Timing: Light, easily digestible carbs for 2-hour morning run*
+
+* **Post-Run Snack (8:30 AM):** Greek yogurt (200g, plain) with granola (50g) and berries (100g). Dates (60g).
+    * Protein: 20g, Fat: 8g, Carbs: 85g
+    * *Timing: Immediate recovery post-run; protein + carbs for glycogen replenishment*
+
+* **Mid-Morning Snack (10:30 AM):** Whole wheat toast (2 slices, 60g) with chickpea spread (50g). Apple (180g).
+    * Protein: 12g, Fat: 8g, Carbs: 65g
+
+* **Lunch (1:00 PM):** Vegetarian pasta (150g cooked) with marinara sauce (200g), lentil bolognese (150g cooked), and side salad with olive oil dressing (1 tbsp/15g). Whole wheat bread (60g).
+    * Protein: 28g, Fat: 18g, Carbs: 110g
+
+* **Pre-Strength Session Snack (3:30 PM):** Rice cakes (40g) with peanut butter alternative - sunflower seed butter (40g). Honey (20g). Coconut water (250ml).
+    * Protein: 12g, Fat: 16g, Carbs: 85g
+    * *Timing: 1.5 hours before afternoon strength session*
+
+* **Dinner (6:30 PM):** Baked tofu (200g) with roasted sweet potato (250g), steamed broccoli (150g), and tahini drizzle (15g). Brown rice (120g cooked).
+    * Protein: 30g, Fat: 38g, Carbs: 120g
+
+* **Evening Snack (8:30 PM):** Oatmeal (50g dry) cooked with almond milk (200ml), topped with banana (120g) and cinnamon.
+    * Protein: 8g, Fat: 3g, Carbs: 75g
+
+* **Late Evening Snack (10:00 PM):** Whole grain crackers (40g) with hummus (60g).
+    * Protein: 7g, Fat: 6g, Carbs: 20g
+
+---
+
+**Key Features of This Plan:**
+- **Carbohydrate-focused** (630g) to maximize glycogen stores for marathon training
+- **Strategically timed meals** around your 2-hour morning run (light pre-run, substantial post-run) and afternoon strength session
+- **Vegetarian protein sources** include Greek yogurt, tofu, lentils, legumes, and whole grains
+- **No nuts:** Uses seeds (sunflower butter, tahini) as alternatives
+- **Budget-friendly:** Relies on affordable staples like oats, rice, pasta, lentils, and seasonal produce</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution meets all three mandatory requirements with clear daily totals, detailed macronutrient breakdown, and specific meals with portions and timing. It successfully addresses the carbohydrate-loading goal (56% of calories) and is fully vegetarian and nut-free. However, it has two notable deficiencies: (1) the meal plan uses 8 eating occasions instead of the requested 4-5 for compactness, and (2) there's no explicit during-run nutrition strategy for a 2-hour run, which is standard practice for endurance athletes. The macronutrient math also contains a minor discrepancy. These are secondary criteria issues that prevent a perfect score, but the solution remains functionally sound and meets core requirements.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

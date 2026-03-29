@@ -1,0 +1,23 @@
+[
+  {
+    "output": "# One-Day Meal Plan for Marathon Training Athlete\n\nHere is a one-day meal plan for an athlete training for a marathon with carbohydrate-loading for race day:\n\n* **Calorie Target:** Approximately 4500 calories\n* **Macronutrient Breakdown:** Protein (135g), Fat (120g), Carbs (630g)\n\n## Meal Plan:\n\n* **Pre-Run Breakfast (6:00 AM):** Bagel (85g) with jam (30g) and banana (150g). Orange juice (250ml).\n    * Protein: 10g, Fat: 2g, Carbs: 105g\n    * *Timing: Light, easily digestible carbs for 2-hour morning run*\n\n* **Post-Run Snack (8:30 AM):** Greek yogurt (200g, plain) with granola (50g) and berries (100g). Dates (60g).\n    * Protein: 20g, Fat: 8g, Carbs: 85g\n    * *Timing: Immediate recovery post-run; protein + carbs for glycogen replenishment*\n\n* **Mid-Morning Snack (10:30 AM):** Whole wheat toast (2 slices, 60g) with chickpea spread (50g). Apple (180g).\n    * Protein: 12g, Fat: 8g, Carbs: 65g\n\n* **Lunch (1:00 PM):** Vegetarian pasta (150g cooked) with marinara sauce (200g), lentil bolognese (150g cooked), and side salad with olive oil dressing (1 tbsp/15g). Whole wheat bread (60g).\n    * Protein: 28g, Fat: 18g, Carbs: 110g\n\n* **Pre-Strength Session Snack (3:30 PM):** Rice cakes (40g) with peanut butter alternative - sunflower seed butter (40g). Honey (20g). Coconut water (250ml).\n    * Protein: 12g, Fat: 16g, Carbs: 85g\n    * *Timing: 1.5 hours before afternoon strength session*\n\n* **Dinner (6:30 PM):** Baked tofu (200g) with roasted sweet potato (250g), steamed broccoli (150g), and tahini drizzle (15g). Brown rice (120g cooked).\n    * Protein: 30g, Fat: 38g, Carbs: 120g\n\n* **Evening Snack (8:30 PM):** Oatmeal (50g dry) cooked with almond milk (200ml), topped with banana (120g) and cinnamon.\n    * Protein: 8g, Fat: 3g, Carbs: 75g\n\n* **Late Evening Snack (10:00 PM):** Whole grain crackers (40g) with hummus (60g).\n    * Protein: 7g, Fat: 6g, Carbs: 20g\n\n---\n\n**Key Features of This Plan:**\n- **Carbohydrate-focused** (630g) to maximize glycogen stores for marathon training\n- **Strategically timed meals** around your 2-hour morning run (light pre-run, substantial post-run) and afternoon strength session\n- **Vegetarian protein sources** include Greek yogurt, tofu, lentils, legumes, and whole grains\n- **No nuts:** Uses seeds (sunflower butter, tahini) as alternatives\n- **Budget-friendly:** Relies on affordable staples like oats, rice, pasta, lentils, and seasonal produce",
+    "test_case": {
+      "prompt_inputs": {
+        "height": "178 cm",
+        "weight": "72 kg",
+        "goal": "Marathon training with carbohydrate-loading for race day; achieve 4500+ calories with optimal macronutrient timing around 2-hour morning run and afternoon strength session",
+        "restrictions": "Vegetarian, no nuts"
+      },
+      "solution_criteria": [
+        "Meal plan totals 4500+ calories with carbohydrate-loading emphasis (55-65% of calories)",
+        "Includes pre-run, during-run, and post-run nutrition timing around the 2-hour morning session and afternoon strength work",
+        "All meals and snacks are vegetarian and nut-free",
+        "Plan is compact and fits within 1 day with 4-5 eating occasions"
+      ],
+      "task_description": "Write a compact, concise 1 day meal plan for a single athlete",
+      "scenario": "Testing with a high-endurance athlete (marathon runner) requiring carbohydrate-loading and specific caloric intake targets (4500+ calories) with timing constraints around training sessions"
+    },
+    "score": 7,
+    "reasoning": "The solution meets all three mandatory requirements with clear daily totals, detailed macronutrient breakdown, and specific meals with portions and timing. It successfully addresses the carbohydrate-loading goal (56% of calories) and is fully vegetarian and nut-free. However, it has two notable deficiencies: (1) the meal plan uses 8 eating occasions instead of the requested 4-5 for compactness, and (2) there's no explicit during-run nutrition strategy for a 2-hour run, which is standard practice for endurance athletes. The macronutrient math also contains a minor discrepancy. These are secondary criteria issues that prevent a perfect score, but the solution remains functionally sound and meets core requirements."
+  }
+]
