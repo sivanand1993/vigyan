@@ -5,24 +5,38 @@ import { cn } from "@/lib/utils";
 import { User, Bot, Loader2 } from "lucide-react";
 import { MarkdownRenderer } from "./MarkdownRenderer";
 
+function getToolLabel(toolName: string, args?: Record<string, string>): string {
+  const path = args?.path ?? "";
+  const filename = path.split("/").pop() ?? path;
+
+  if (toolName === "str_replace_editor") {
+    switch (args?.command) {
+      case "create":   return `Creating ${filename}`;
+      case "str_replace":
+      case "insert":   return `Editing ${filename}`;
+      case "view":     return `Reading ${filename}`;
+      case "undo_edit": return `Undoing edit in ${filename}`;
+      default:         return `Editing ${filename || "file"}`;
+    }
+  }
+
+  if (toolName === "file_manager") {
+    switch (args?.command) {
+      case "rename": return `Renaming ${filename}`;
+      case "delete": return `Deleting ${filename}`;
+      default:       return "Managing files";
+    }
+  }
+
+  return toolName;
+}
+
 interface MessageListProps {
   messages: Message[];
   isLoading?: boolean;
 }
 
 export function MessageList({ messages, isLoading }: MessageListProps) {
-  if (messages.length === 0) {
-    return (
-      <div className="flex flex-col items-center justify-center h-full px-4 text-center">
-        <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-blue-50 mb-4 shadow-sm">
-          <Bot className="h-7 w-7 text-blue-600" />
-        </div>
-        <p className="text-neutral-900 font-semibold text-lg mb-2">Start a conversation to generate React components</p>
-        <p className="text-neutral-500 text-sm max-w-sm">I can help you create buttons, forms, cards, and more</p>
-      </div>
-    );
-  }
-
   return (
     <div className="flex flex-col h-full overflow-y-auto px-4 py-6">
       <div className="space-y-6 max-w-4xl mx-auto w-full">
@@ -76,17 +90,19 @@ export function MessageList({ messages, isLoading }: MessageListProps) {
                             );
                           case "tool-invocation":
                             const tool = part.toolInvocation;
+                            const args = tool.args as Record<string, string> | undefined;
+                            const label = getToolLabel(tool.toolName, args);
                             return (
-                              <div key={partIndex} className="inline-flex items-center gap-2 mt-2 px-3 py-1.5 bg-neutral-50 rounded-lg text-xs font-mono border border-neutral-200">
+                              <div key={partIndex} className="inline-flex items-center gap-2 mt-2 px-3 py-1.5 bg-neutral-50 rounded-lg text-xs border border-neutral-200">
                                 {tool.state === "result" && tool.result ? (
                                   <>
-                                    <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                                    <span className="text-neutral-700">{tool.toolName}</span>
+                                    <div className="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></div>
+                                    <span className="text-neutral-700">{label}</span>
                                   </>
                                 ) : (
                                   <>
-                                    <Loader2 className="w-3 h-3 animate-spin text-blue-600" />
-                                    <span className="text-neutral-700">{tool.toolName}</span>
+                                    <Loader2 className="w-3 h-3 animate-spin text-blue-600 flex-shrink-0" />
+                                    <span className="text-neutral-700">{label}</span>
                                   </>
                                 )}
                               </div>
