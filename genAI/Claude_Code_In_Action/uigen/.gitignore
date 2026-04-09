@@ -49,3 +49,9 @@ next-env.d.ts
 # database
 /prisma/dev.db
 /prisma/dev.db-journal
+
+# Claude Code local settings (user-specific permissions and config, not shared)
+.claude/
+
+# Playwright MCP session artifacts (ephemeral browser snapshots and console logs)
+.playwright-mcp/
