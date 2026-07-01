@@ -2,7 +2,8 @@ import { Database } from "sqlite";
 
 interface OrderItem {
   order_item_id: number;
-  product_id: number;
+  product_id: n
+  !umber;
   product_name: string;
   quantity: number;
   price_at_time: number;
